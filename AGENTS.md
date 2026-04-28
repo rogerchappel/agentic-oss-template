@@ -21,6 +21,8 @@ Move quickly, but keep every change reviewable, reversible, verifiable, and safe
 - Keep unrelated docs, code, tests, generated files, dependency changes, and CI changes in separate commits.
 - Prefer one clean commit over several artificial commits.
 - Prefer several clean commits over one mixed commit.
+- Hard gate: if a change touches more than 3 files, split it into smaller commits unless it is a scaffold, generated output, lockfile-only dependency update, or clearly mechanical repository-wide rename.
+- If a task may touch more than 3 files, write the split plan before editing.
 
 Allowed commit types:
 
@@ -93,6 +95,57 @@ Rollback plan:
 Human decision needed:
 Next recommended task:
 ```
+
+## PR Body Formatting Gate
+
+When opening or updating a pull request, the PR body must follow `.github/pull_request_template.md` unless the maintainer explicitly asks for a different format.
+
+Do not pass PR bodies or review comments as shell strings containing escaped newlines like `\n`. GitHub will render those literally and the comment is not reviewable.
+
+Use a body file or heredoc instead:
+
+```bash
+cat > /tmp/pr-body.md <<'EOF'
+## Summary
+
+-
+
+## Verification
+
+- [ ] Tests or checks run:
+- [ ] Manual review completed:
+
+## Risk Level
+
+- [ ] Low
+- [ ] Medium
+- [ ] High
+
+Notes:
+
+## Rollback Plan
+
+-
+
+## Human Decision Needed
+
+- [ ] None
+- [ ] Maintainer review
+- [ ] Product/design decision
+- [ ] Security/privacy review
+- [ ] Other:
+EOF
+
+gh pr create --body-file /tmp/pr-body.md
+```
+
+Before creating or updating a PR, inspect the final rendered source:
+
+```bash
+cat /tmp/pr-body.md
+```
+
+If the preview contains literal `\n`, missing headings, or does not match the repository template, fix it before posting.
 
 ## Safety Rules
 
