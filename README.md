@@ -54,6 +54,8 @@ template before publishing.
   commands when `package.json` exists.
 - `.github/workflows/docs.yml`: documentation presence checks.
 - `.github/workflows/branchbrief.yml`: pull request branch summary artifact.
+- `scripts/validate-template.sh`: local repository hygiene validation for this
+  template.
 
 ### Documentation
 
@@ -118,6 +120,7 @@ repository:
   not ship in the generated project.
 - Search for stale template language and remove anything that no longer applies
   to the generated project.
+- Run `bash scripts/validate-template.sh` while maintaining this template.
 - Run the smallest relevant local verification for the generated project.
 - Make the first commit as a small identity-only change.
 

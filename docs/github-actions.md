@@ -13,6 +13,19 @@ before it has application code.
 The workflows do not require repository secrets. They use read-only repository
 permissions unless a future project intentionally adds write behavior.
 
+## Local template validation
+
+Run the local repository hygiene check before changing template structure:
+
+```sh
+bash scripts/validate-template.sh
+```
+
+The script verifies required root files, docs, and template folders, then scans
+for unresolved double-brace placeholder markers outside approved template and
+reference paths. It is dependency-free and mirrors the lightweight checks this
+template expects maintainers and agents to run locally.
+
 ## Customizing CI for Node/npm
 
 When the project becomes a Node package or app, add the relevant scripts to
