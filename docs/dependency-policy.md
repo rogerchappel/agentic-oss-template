@@ -1,23 +1,29 @@
 # Dependency Policy
 
-Dependabot is enabled for GitHub Actions updates.
+This template starts with Dependabot updates for GitHub Actions only.
 
-## Current Scope
+## Baseline policy
 
-- Ecosystem: GitHub Actions
-- Schedule: weekly
-- Pull request limit: 5 open updates
-- Commit prefix: `ci`
+- Dependabot checks workflow action versions weekly.
+- Dependency pull requests should be small and reviewed like any other change.
+- Avoid major dependency upgrades in the same commit as feature work.
+- Do not add package-manager Dependabot entries until the project has a real
+  package manifest.
 
-## Adding Package Managers Later
+## Adding Node/npm updates later
 
-Add npm, pnpm, Python, or other ecosystems only after the project has the corresponding manifest and lockfile. For Node/npm, add a second Dependabot entry like this:
+After a project adds `package.json`, extend `.github/dependabot.yml` with npm:
 
 ```yaml
-- package-ecosystem: npm
-  directory: /
-  schedule:
-    interval: weekly
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: chore
 ```
 
-Review dependency updates like normal code changes. For major version updates, check release notes, run the relevant tests, and prefer one major upgrade per pull request.
+Run the project's smallest relevant verification before merging dependency
+updates. For Node projects, that usually means lint, tests, typecheck, and build
+when those scripts exist.

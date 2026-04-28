@@ -2,49 +2,54 @@ name: Branchbrief
 
 on:
   pull_request:
-    types:
-      - opened
-      - synchronize
-      - reopened
-      - ready_for_review
   workflow_dispatch:
 
 permissions:
   contents: read
-  pull-requests: read
 
 jobs:
-  summarize:
-    name: Summarize branch changes
+  branchbrief:
+    name: Generate branchbrief
     runs-on: ubuntu-latest
+
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Write branch brief
-        shell: bash
+      - name: Build branchbrief summary
         run: |
           set -euo pipefail
 
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            BASE_SHA="${{ github.event.pull_request.base.sha }}"
-          else
-            BASE_SHA="$(git rev-parse HEAD~1 2>/dev/null || git rev-parse HEAD)"
-          fi
+          base_ref="${GITHUB_BASE_REF:-main}"
+          head_ref="${GITHUB_HEAD_REF:-${GITHUB_REF_NAME}}"
 
-          HEAD_SHA="${{ github.sha }}"
+          git fetch --no-tags origin "$base_ref:refs/remotes/origin/$base_ref"
 
           {
-            echo "## Branchbrief"
+            echo "# Branchbrief"
             echo
-            echo "**Base:** \`${BASE_SHA}\`"
-            echo "**Head:** \`${HEAD_SHA}\`"
+            echo "- Base: \`$base_ref\`"
+            echo "- Head: \`$head_ref\`"
+            echo "- Commit: \`$GITHUB_SHA\`"
             echo
-            echo "### Changed Files"
-            git diff --name-status "${BASE_SHA}...${HEAD_SHA}" || git diff --name-status "${BASE_SHA}" "${HEAD_SHA}"
+            echo "## Recent Commits"
             echo
-            echo "### Recent Commits"
-            git log --oneline --decorate --max-count=10 "${BASE_SHA}..${HEAD_SHA}" || git log --oneline --decorate --max-count=10
-          } >> "$GITHUB_STEP_SUMMARY"
+            git log --oneline "origin/$base_ref..HEAD" || true
+            echo
+            echo "## Changed Files"
+            echo
+            git diff --name-status "origin/$base_ref...HEAD" || true
+            echo
+            echo "## Diff Stat"
+            echo
+            git diff --stat "origin/$base_ref...HEAD" || true
+          } > branchbrief.md
+
+      - name: Upload branchbrief artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: branchbrief
+          path: branchbrief.md
+          if-no-files-found: error
