@@ -99,6 +99,7 @@ templates/license
 templates/npm-package
 templates/npm-package/src
 templates/npm-package/test
+templates/readme
 templates/release
 templates/security
 "

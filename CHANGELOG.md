@@ -14,6 +14,7 @@ format and uses semantic versioning when versioned releases are published.
   checks.
 - Example generated repository shapes for minimal libraries, CLI tooling, and
   docs-only projects.
+- Optional generated repository README template.
 
 ### Changed
 

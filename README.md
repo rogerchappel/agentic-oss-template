@@ -93,6 +93,7 @@ repositories, including:
 - contributor and review pack templates
 - GitHub issue, pull request, workflow, and Dependabot templates
 - release, changelog, roadmap, and release-checklist templates
+- generated repository README template
 - security policy templates
 - MIT license template
 - optional Cloudflare Pages documentation deployment files
