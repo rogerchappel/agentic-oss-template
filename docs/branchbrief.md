@@ -10,9 +10,29 @@ The baseline workflow creates a `branchbrief.md` artifact with:
 - recent commits
 - changed files
 - diff stat
+- likely review areas inferred from touched paths
+- risk keyword matches inside changed files
 
 It does not post comments, mutate pull requests, call external services, or
 require secrets.
+
+## Output sections
+
+The artifact is designed to help reviewers orient before opening the full diff:
+
+- `Recent Commits` lists commits on the pull request branch that are not on the
+  base branch.
+- `Changed Files` lists changed paths with Git name-status markers.
+- `Diff Stat` summarizes insertions, deletions, and per-file churn.
+- `Likely Review Areas` maps touched paths to broad review categories such as
+  CI, documentation, templates, application code, tests, dependencies, and
+  migrations.
+- `Risk Keywords` scans reviewable changed files for mentions of `auth`,
+  `security`, `billing`, `secret`, `secrets`, `migration`, `migrations`,
+  `telemetry`, `license`, `licence`, `licensing`, or `licencing`.
+
+Risk keyword matches are a routing aid, not a security finding. Reviewers should
+still inspect the pull request diff directly.
 
 ## How to use it
 
