@@ -1,5 +1,6 @@
 # Dependabot Template Notes
 
-Copy `templates/github/dependabot.yml` to `.github/dependabot.yml` to enable baseline GitHub Actions dependency updates.
+Use `templates/github/dependabot.yml` as the baseline Dependabot config.
 
-Keep package manager entries out of Dependabot until the project has the matching manifest and lockfile.
+The baseline only updates GitHub Actions. Add package-manager ecosystems after
+the generated project has real package manifests and verification commands.
