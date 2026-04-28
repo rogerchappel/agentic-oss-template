@@ -1,6 +1,6 @@
 # GitHub Copilot Instructions
 
-Generated projects can configure GitHub Copilot with repository-specific instructions. These instructions help Copilot match the project's workflow, risk policy, verification expectations, and coding conventions.
+Generated repositories can configure GitHub Copilot with repository-specific instructions. These instructions help Copilot match the repository's workflow, risk policy, verification expectations, and coding conventions.
 
 Copilot configuration is optional. Projects can use this template without enabling GitHub Copilot.
 
@@ -16,7 +16,7 @@ GitHub Copilot can use this file as persistent context when generating suggestio
 
 ## What To Include
 
-Keep Copilot instructions short, concrete, and specific to the generated project.
+Keep Copilot instructions short, concrete, and specific to the generated repository.
 
 Recommended sections:
 
@@ -32,7 +32,7 @@ Use `AGENTS.md` as the authoritative operating policy for agentic work. Copilot 
 
 ## Starter Template
 
-Copy this into `.github/copilot-instructions.md` in a generated project and customize it:
+Copy this into `.github/copilot-instructions.md` in a generated repository and customize it:
 
 ```md
 # GitHub Copilot Instructions for {{PROJECT_NAME}}
@@ -68,11 +68,11 @@ Use these files together:
 - `CONTRIBUTING.md`: human contributor workflow
 - `docs/llm-policy.md`: project policy for LLM and agent usage
 
-When the files disagree, generated projects should treat `AGENTS.md` and maintainer instructions as higher priority than Copilot suggestions.
+When the files disagree, generated repositories should treat `AGENTS.md` and maintainer instructions as higher priority than Copilot suggestions.
 
 ## Review Checklist
 
-Before committing Copilot instructions in a generated project, confirm:
+Before committing Copilot instructions in a generated repository, confirm:
 
 - placeholders are replaced
 - verification commands are accurate

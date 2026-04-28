@@ -1,8 +1,8 @@
 # Security Policy Customization
 
-This template includes a generic `SECURITY.md` so generated projects start with a safe vulnerability reporting posture.
+This template includes a generic `SECURITY.md` so generated repositories start with a safe vulnerability reporting posture.
 
-Before publishing a generated project, customize the policy for that project's actual maintenance model, risk profile, and support commitments.
+Before publishing a generated repository, customize the policy for that repository's actual maintenance model, risk profile, and support commitments.
 
 ## What to Customize
 

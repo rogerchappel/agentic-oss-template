@@ -1,12 +1,12 @@
 # Cloudflare Pages
 
-This guide explains how projects generated from this template can optionally deploy generated documentation sites with Cloudflare Pages.
+This guide explains how repositories generated from this template can optionally deploy generated documentation sites with Cloudflare Pages.
 
-Cloudflare Pages is not required for this template. Use it only when a generated project wants hosted documentation and the maintainers have chosen Cloudflare as the hosting provider.
+Cloudflare Pages is not required for this template. Use it only when a generated repository wants hosted documentation and the maintainers have chosen Cloudflare as the hosting provider.
 
 ## When To Use This
 
-Use Cloudflare Pages when a generated project needs:
+Use Cloudflare Pages when a generated repository needs:
 
 - a static documentation site built from a generated docs-site package
 - preview deployments for pull requests
@@ -26,7 +26,7 @@ docs-site/
   src/
 ```
 
-The docs site should remain optional. Do not make the root package, CI, or base template depend on it unless the generated project explicitly adopts hosted docs.
+The docs site should remain optional. Do not make the root package, CI, or base template depend on it unless the generated repository explicitly adopts hosted docs.
 
 ## Cloudflare Pages Settings
 
@@ -36,25 +36,25 @@ Recommended settings for an Astro/Starlight docs site:
 
 - Framework preset: `Astro`
 - Root directory: `docs-site`
-- Build command: `{{DOCS_BUILD_COMMAND}}`
-- Build output directory: `{{DOCS_BUILD_OUTPUT_DIR}}`
-- Production branch: the generated project's default branch, usually `main`
+- Build command: replace the docs build command placeholder
+- Build output directory: replace the docs build output directory placeholder
+- Production branch: the generated repository's default branch, usually `main`
 - Preview deployments: enabled for pull requests when maintainers want public preview URLs
 
 For the provided `templates/docs-site/` example, use:
 
-- `{{DOCS_BUILD_COMMAND}}`: `npm run build`
-- `{{DOCS_BUILD_OUTPUT_DIR}}`: `dist`
+- docs build command: `npm run build`
+- docs build output directory: `dist`
 
-If the generated docs site uses a package manager other than npm, update the build command to match the generated project, for example `pnpm build`, `yarn build`, or `npm run docs:build`.
+If the generated docs site uses a package manager other than npm, update the build command to match the generated repository, for example `pnpm build`, `yarn build`, or `npm run docs:build`.
 
 ## Environment Variables
 
 This repository does not require or store Cloudflare secrets.
 
-Generated projects usually do not need repository secrets for dashboard-managed Cloudflare Pages builds. If a project deploys through GitHub Actions instead, store Cloudflare credentials only in that generated project's GitHub Actions secrets or variables.
+Generated repositories usually do not need repository secrets for dashboard-managed Cloudflare Pages builds. If a repository deploys through GitHub Actions instead, store Cloudflare credentials only in that generated repository's GitHub Actions secrets or variables.
 
-Common generated-project settings:
+Common generated repository settings:
 
 - `CLOUDFLARE_API_TOKEN`: GitHub Actions secret, scoped to Cloudflare Pages deployment
 - `CLOUDFLARE_ACCOUNT_ID`: GitHub Actions variable or secret
@@ -70,25 +70,25 @@ Do not commit:
 - `.env`, `.env.local`, or exported dashboard environment files
 - generated Cloudflare deployment output
 - project-specific production domains unless the generated repository intentionally documents them
-- copied workflow files before the generated project has reviewed the branch, package-manager, and output-directory placeholders
+- copied workflow files before the generated repository has reviewed the branch, package-manager, and output-directory placeholders
 
 ## Optional GitHub Actions Deployment
 
-The `templates/cloudflare-pages/` directory contains optional examples for generated projects that prefer GitHub Actions or checked-in Pages configuration over dashboard-managed builds.
+The `templates/cloudflare-pages/` directory contains optional examples for generated repositories that prefer GitHub Actions or checked-in Pages configuration over dashboard-managed builds.
 
-Use it only after the generated project has:
+Use it only after the generated repository has:
 
 - copied in an optional docs site
 - created a Cloudflare Pages project
 - configured required GitHub Actions secrets or variables in the generated repository
-- replaced placeholders such as `{{CLOUDFLARE_PROJECT_NAME}}`
-- reviewed the workflow for the project's branch, package-manager, and output-directory conventions
+- replaced placeholders such as the Cloudflare project name
+- reviewed the workflow for the repository's branch, package-manager, and output-directory conventions
 
 Dashboard-managed Pages builds are simpler and should be the default recommendation for most small documentation sites.
 
 ## Verification
 
-Before enabling Cloudflare Pages in a generated project, confirm:
+Before enabling Cloudflare Pages in a generated repository, confirm:
 
 - the docs site builds locally
 - the Cloudflare Pages project points at the docs-site root
@@ -98,7 +98,7 @@ Before enabling Cloudflare Pages in a generated project, confirm:
 
 ## Rollback
 
-To roll back Cloudflare Pages adoption in a generated project:
+To roll back Cloudflare Pages adoption in a generated repository:
 
 1. Disable or delete the Cloudflare Pages project.
 2. Remove any copied Cloudflare workflow from `.github/workflows/`.

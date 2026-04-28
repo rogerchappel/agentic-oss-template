@@ -11,7 +11,7 @@ Use issues for bugs, feature requests, documentation improvements, and agent tas
 Before opening an issue:
 
 - Search existing issues to avoid duplicates.
-- Confirm whether the request applies to this template repo or to a project generated from it.
+- Confirm whether the request applies to this template repository or to a repository generated from it.
 - Include enough context for another maintainer or agent to reproduce the problem or understand the requested change.
 
 For bug reports, include:
@@ -76,7 +76,7 @@ Use the smallest relevant verification first:
 - Documentation-only changes: review the rendered Markdown or inspect the diff.
 - Template changes: confirm placeholders are clear and no project-specific private details were introduced.
 - CI or workflow changes: run the narrowest relevant local check, then confirm expected GitHub Actions behavior when possible.
-- Code changes in generated projects: run the targeted test, typecheck, lint, build, or smoke command that proves the change.
+- Code changes in generated repositories: run the targeted test, typecheck, lint, build, or smoke command that proves the change.
 
 If verification cannot be run, say why and provide the exact command or manual check a maintainer should run.
 

@@ -1,8 +1,8 @@
 # Optional Cloudflare Pages Template
 
-This directory contains optional Cloudflare Pages deployment examples for generated projects with hosted documentation sites.
+This directory contains optional Cloudflare Pages deployment examples for generated repositories with hosted documentation sites.
 
-Cloudflare Pages is not required by the base template. Copy these files only when a generated project has chosen Cloudflare for generated hosted documentation.
+Cloudflare Pages is not required by the base template. Copy these files only when a generated repository has chosen Cloudflare for hosted documentation.
 
 ## Files
 
@@ -22,7 +22,7 @@ Recommended dashboard placeholders for the provided `templates/docs-site/` packa
 
 ## GitHub Actions Requirements
 
-If a generated project copies `deploy-docs-cloudflare-pages.yml`, configure these in that generated repository:
+If a generated repository copies `deploy-docs-cloudflare-pages.yml`, configure these in that generated repository:
 
 - `CLOUDFLARE_API_TOKEN` as a GitHub Actions secret
 - `CLOUDFLARE_ACCOUNT_ID` as a GitHub Actions variable or secret

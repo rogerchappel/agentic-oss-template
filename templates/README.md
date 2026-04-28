@@ -1,6 +1,6 @@
 # Templates
 
-This directory contains reusable project files that can be copied into generated
+This directory contains reusable repository files that can be copied into generated
 repositories or used as references when setting up repository policy.
 
 ## Customisation

@@ -1,6 +1,6 @@
-# Branchbrief Template Notes
+# branchbrief Template Notes
 
-Use `templates/github/workflows/branchbrief.yml` as the baseline Branchbrief
+Use `templates/github/workflows/branchbrief.yml` as the baseline branchbrief
 workflow.
 
 The default workflow creates a pull request artifact only. It summarizes recent

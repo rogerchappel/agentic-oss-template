@@ -8,26 +8,28 @@ constraints.
 
 - Keep the template useful for small open-source projects that need clear
   repository hygiene from day one.
-- Add lightweight docs and templates that help generated projects work well with
-  human maintainers and coding agents.
+- Maintain lightweight docs and templates that help generated repositories work well
+  with human maintainers and coding agents.
 - Keep setup requirements minimal and avoid assuming one runtime, package
   manager, or publishing target.
+- Keep validation checks aligned with the files this template actually ships.
 
 ## Next
 
-- Add remaining baseline governance docs such as contributing, security, and
-  agent workflow guidance.
-- Add CI and dependency-management templates that generated projects can adapt.
-- Add optional publishing guidance for common project shapes without making any
-  one ecosystem mandatory.
+- Tighten template validation where it can catch stale placeholders, missing
+  docs, or broken Markdown without becoming a full generator.
+- Expand examples only when a generated repository pattern is reusable.
+- Refine optional publishing guidance for common project shapes without making
+  any one ecosystem mandatory.
 
 ## Later
 
 - Consider a small generator or checklist-driven setup flow if manual template
   customisation becomes repetitive.
-- Consider optional docs-site and package scaffolds once the core repository
-  discipline is stable.
-- Add examples from real generated projects when they reveal reusable patterns.
+- Consider richer docs-site and package scaffolds once the core repository
+  discipline remains stable.
+- Consider GitHub label or issue seeding automation if repeated setup work
+  justifies it.
 
 ## Not Planned
 

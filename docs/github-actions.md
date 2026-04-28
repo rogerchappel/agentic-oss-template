@@ -8,10 +8,10 @@ before it has application code.
 - `CI` validates core repository files, checks that markdown files are not empty,
   and runs optional Node commands only when `package.json` exists.
 - `Docs` validates the docs directory and markdown file presence.
-- `Branchbrief` creates a `branchbrief.md` artifact for pull requests.
+- `branchbrief` creates a `branchbrief.md` artifact for pull requests.
 
 The workflows do not require repository secrets. They use read-only repository
-permissions unless a future project intentionally adds write behavior.
+permissions unless a generated repository intentionally adds write behavior.
 
 ## Local template validation
 

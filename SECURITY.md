@@ -4,7 +4,7 @@
 
 This template repository does not currently publish versioned software releases.
 
-Projects generated from this template should replace this section with their own supported version policy before publishing or accepting production use.
+Repositories generated from this template should replace this section with their own supported version policy before publishing or accepting production use.
 
 ## Reporting a Vulnerability
 
@@ -19,7 +19,7 @@ If private vulnerability reporting is not enabled, contact the maintainers throu
 When a private reporting path is available, include:
 
 - A clear description of the issue.
-- Affected files, templates, workflows, packages, or generated-project defaults.
+- Affected files, templates, workflows, packages, or generated repository defaults.
 - Steps to reproduce, proof of concept, or attack scenario when safe to share.
 - Potential impact.
 - Suggested mitigation, if known.
@@ -28,14 +28,14 @@ When a private reporting path is available, include:
 
 Maintainers will review good-faith reports as capacity allows.
 
-This policy does not provide paid support, guaranteed response times, guaranteed fixes, or service-level agreements. Generated projects should define their own response expectations if they need a stricter policy.
+This policy does not provide paid support, guaranteed response times, guaranteed fixes, or service-level agreements. Generated repositories should define their own response expectations if they need a stricter policy.
 
 ## Security Scope
 
 In scope:
 
 - Insecure defaults in this template.
-- Templates that could cause generated projects to expose secrets or unsafe workflows.
+- Templates that could cause generated repositories to expose secrets or unsafe workflows.
 - CI, dependency, or release guidance that creates avoidable security risk.
 
 Out of scope:
@@ -44,6 +44,6 @@ Out of scope:
 - General support requests.
 - Requests for guaranteed maintenance timelines.
 
-## Generated Projects
+## Generated Repositories
 
-Projects generated from this template must customize their security policy before public release. See [docs/security-policy.md](docs/security-policy.md) for guidance.
+Repositories generated from this template must customize their security policy before public release. See [docs/security-policy.md](docs/security-policy.md) for guidance.

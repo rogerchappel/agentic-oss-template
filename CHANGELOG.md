@@ -10,6 +10,15 @@ format and uses semantic versioning when versioned releases are published.
 ### Added
 
 - Initial release planning, roadmap, and release-process documentation.
+- Template validation script and documentation for local repository hygiene
+  checks.
+- Example generated repository shapes for minimal libraries, CLI tooling, and
+  docs-only projects.
+
+### Changed
+
+- Aligned template terminology, placeholder documentation, and current V1
+  surface area across docs, templates, and workflows.
 
 ## Release Links
 

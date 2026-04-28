@@ -117,6 +117,6 @@ Never commit secrets. Never mutate production data unless explicitly instructed.
 
 - Prefer existing repository patterns over new abstractions.
 - Keep edits scoped to the task.
-- Do not modify GitHub Actions, package scaffolds, or generated project structure unless the task explicitly asks for it.
+- Do not modify GitHub Actions, package scaffolds, or generated repository structure unless the task explicitly asks for it.
 - Do not revert user or maintainer changes unless explicitly instructed.
 - Surface blockers early with options and a recommendation.

@@ -38,7 +38,7 @@ docs-only/
 - `SECURITY.md`, shortened to explain how to report sensitive documentation
   mistakes.
 - `CHANGELOG.md`, for visible updates to public guidance.
-- Documentation checks and Branchbrief.
+- Documentation checks and branchbrief.
 
 ## What was removed
 

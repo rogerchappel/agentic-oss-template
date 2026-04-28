@@ -47,14 +47,14 @@ Roger Chappel, creating OSS projects under the `rogerchappel` GitHub identity.
 - developers building agent-assisted OSS tools
 - maintainers using Codex, OpenClaw, Claude Code, Copilot, or similar agents
 - contributors who need clear expectations before opening issues or PRs
-- AI agents bootstrapping or maintaining repos
+- AI agents bootstrapping or maintaining repositories
 - people who want a serious OSS starter without a large framework
 
 ## 4. Repository Type
 
-This repo should be usable as a **public GitHub template repository**.
+This repository should be usable as a **public GitHub template repository**.
 
-Suggested GitHub repo description:
+Suggested GitHub repository description:
 
 ```text
 Practical starter kit for agent-friendly open-source projects.
@@ -87,6 +87,13 @@ V1 is the current template foundation. It includes the following files and direc
 - `CODE_OF_CONDUCT.md`
 - `CHANGELOG.md`
 - `ROADMAP.md`
+- `scripts/validate-template.sh`
+
+### Examples
+
+- `examples/cli-tooling/README.md`
+- `examples/docs-only/README.md`
+- `examples/minimal-library/README.md`
 
 ### GitHub Configuration
 
@@ -186,15 +193,16 @@ V1 must not:
 - require Cloudflare
 - require npm publishing
 - require LLMs
-- assume every future repo is Node-only
+- assume every generated repository is Node-only
 - include private company or client details
 - include secrets
 - add a generator CLI
-- add validation tooling unless it is implemented as a separate, reviewable future task
+- require generated repositories to keep this template repository's validation
+  script
 
 ## 7. Implemented Optional Areas
 
-Some optional capabilities are already represented in V1 as documentation or template files. They are available for future projects to copy or adapt, but they are not mandatory for every repository generated from this template.
+Some optional capabilities are already represented in V1 as documentation or template files. They are available for future generated repositories to copy or adapt, but they are not mandatory for every repository generated from this template.
 
 ### Docs Site
 
@@ -223,13 +231,25 @@ Copilot remains optional. The current repository does not include a dedicated `.
 
 Implemented as `templates/npm-package/`.
 
-The current scaffold is a small JavaScript package starter. It is not a full TypeScript CLI generator and does not imply that all future projects must publish to npm.
+The current scaffold is a small JavaScript package starter. It is not a full TypeScript CLI generator and does not imply that all future generated repositories must publish to npm.
+
+### Template Validation
+
+Implemented as `scripts/validate-template.sh`.
+
+The current script checks required root files, documentation files, template directories, and unresolved placeholders outside allowed template paths. It validates this template repository; generated repositories may keep, adapt, or remove it during customisation.
+
+### Examples
+
+Implemented as `examples/`.
+
+The examples show documentation-first generated repository shapes for a minimal library, CLI/tooling project, and docs-only project. They are illustrative, not mandatory presets.
 
 ## 8. Future Enhancements
 
 The following ideas are explicitly future work unless implemented in a separate PR.
 
-### Validation Scripts
+### Expanded Validation
 
 Future enhancement.
 
@@ -238,13 +258,13 @@ Potential additions:
 - `scripts/check-template`
 - `scripts/list-template-files`
 
-These scripts could validate required files, template directories, unresolved placeholders, missing docs, YAML presence, and accidental `.env` files. They are not present in V1.
+These scripts could extend current validation with stricter file inventory checks, YAML parsing, Markdown link checks, and accidental `.env` detection.
 
 ### Generator CLI
 
 Future enhancement.
 
-A future `create-agentic-oss` CLI could copy templates, replace placeholders, select repo presets, and prepare a new repository. V1 remains a template repository, not a generator.
+A future `create-agentic-oss` CLI could copy templates, replace placeholders, select repository presets, and prepare a new repository. V1 remains a template repository, not a generator.
 
 ### Copilot Instruction Template
 
@@ -276,7 +296,7 @@ V1 is acceptable when:
 - Dependabot config exists
 - GitHub issue templates exist
 - PR template exists
-- CI, docs, and branchbrief workflows exist or are represented as templates
+- CI, docs, and branchbrief workflows exist
 - release process docs exist
 - dependency policy docs exist
 - branchbrief docs exist
@@ -286,7 +306,7 @@ V1 is acceptable when:
 - optional docs-site scaffold exists
 - MIT license template exists
 - template variables doc exists
-- repo customisation guide exists
+- repository customisation guide exists
 - no private company or client details are present
 - no secrets are present
 - Markdown renders cleanly
@@ -330,10 +350,10 @@ For PRD updates, verification should include:
 
 ### V2 - Generator and Validation
 
-- validation scripts
+- expanded validation checks
 - CLI generator
 - placeholder replacement
-- repo type presets
+- repository type presets
 - GitHub labels sync
 - expanded docs-site template
 - Copilot instruction template
@@ -341,7 +361,7 @@ For PRD updates, verification should include:
 
 ### V3 - Repo Factory
 
-- automatic GitHub repo creation
+- automatic GitHub repository creation
 - issue seeding
 - CrewCMD integration notes
 - branchbrief setup automation
@@ -352,6 +372,6 @@ For PRD updates, verification should include:
 
 ## 12. Final Product Promise
 
-`agentic-oss-template` makes serious OSS repo setup repeatable.
+`agentic-oss-template` makes serious OSS repository setup repeatable.
 
-It helps future projects start with trust, safety, reviewability, release discipline, and agent-friendly workflows already in place.
+It helps future generated repositories start with trust, safety, reviewability, release discipline, and agent-friendly workflows already in place.
