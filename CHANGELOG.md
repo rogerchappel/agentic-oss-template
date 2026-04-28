@@ -23,6 +23,8 @@ format and uses semantic versioning when versioned releases are published.
   surface area across docs, templates, and workflows.
 - Expanded template inventory checks and directory documentation to include the
   generated repository README template.
+- Tightened template file validation and aligned generated workflow action
+  versions.
 
 ## Release Links
 

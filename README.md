@@ -50,8 +50,7 @@ template before publishing.
 - `.github/ISSUE_TEMPLATE/bug_report.md`: bug report template.
 - `.github/ISSUE_TEMPLATE/feature_request.md`: feature request template.
 - `.github/dependabot.yml`: weekly GitHub Actions dependency updates.
-- `.github/workflows/ci.yml`: baseline repository checks and optional Node
-  commands when `package.json` exists.
+- `.github/workflows/ci.yml`: baseline repository checks for this template.
 - `.github/workflows/docs.yml`: documentation presence checks.
 - `.github/workflows/branchbrief.yml`: pull request branch summary artifact.
 - `scripts/validate-template.sh`: local repository hygiene validation for this
