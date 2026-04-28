@@ -141,6 +141,7 @@ V1 is the current template foundation. It includes the following files and direc
 - `templates/docs-site/astro.config.mjs`
 - `templates/docs-site/package.json`
 - `templates/docs-site/src/content.config.ts`
+- `templates/docs-site/src/content/docs/contributing.mdx`
 - `templates/docs-site/src/content/docs/getting-started.mdx`
 - `templates/docs-site/src/content/docs/index.mdx`
 - `templates/docs-site/tsconfig.json`
