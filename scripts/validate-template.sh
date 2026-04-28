@@ -105,6 +105,47 @@ templates/release
 templates/security
 "
 
+required_template_files="
+templates/agents/AGENTS.snippet.md
+templates/agents/AGENTS.template.md
+templates/branchbrief/README.md
+templates/cloudflare-pages/README.md
+templates/cloudflare-pages/deploy-docs-cloudflare-pages.yml
+templates/cloudflare-pages/wrangler.toml.template
+templates/contributors/CODE_OF_CONDUCT.template.md
+templates/contributors/CONTRIBUTING.template.md
+templates/contributors/REVIEW_PACK.template.md
+templates/dependabot/README.md
+templates/docs-site/.gitignore
+templates/docs-site/README.md
+templates/docs-site/astro.config.mjs
+templates/docs-site/package.json
+templates/docs-site/src/content.config.ts
+templates/docs-site/src/content/docs/getting-started.mdx
+templates/docs-site/src/content/docs/index.mdx
+templates/docs-site/tsconfig.json
+templates/github/dependabot.yml
+templates/github/pull_request_template.md
+templates/github/ISSUE_TEMPLATE/agent_task.md
+templates/github/ISSUE_TEMPLATE/bug_report.md
+templates/github/ISSUE_TEMPLATE/feature_request.md
+templates/github/workflows/branchbrief.yml
+templates/github/workflows/ci.yml
+templates/github/workflows/docs.yml
+templates/license/LICENSE.MIT.template
+templates/npm-package/README.md
+templates/npm-package/package.json
+templates/npm-package/src/index.js
+templates/npm-package/test/index.test.js
+templates/readme/README.template.md
+templates/release/CHANGELOG.template.md
+templates/release/ROADMAP.template.md
+templates/release/release-checklist.template.md
+templates/release/release-process.template.md
+templates/security/SECURITY.github-private-reporting.template.md
+templates/security/SECURITY.template.md
+"
+
 printf 'Checking required root files...\n'
 for file in $required_root_files; do
   check_file "$file"
@@ -118,6 +159,11 @@ done
 printf '\nChecking required template directories...\n'
 for dir in $required_template_dirs; do
   check_dir "$dir"
+done
+
+printf '\nChecking required template files...\n'
+for file in $required_template_files; do
+  check_file "$file"
 done
 
 printf '\nScanning for unresolved placeholders outside allowed template paths...\n'
