@@ -63,6 +63,8 @@ template before publishing.
   generating a new repository.
 - [Agent workflow](docs/agent-workflow.md): branch, verification, commit, and
   review pack expectations.
+- [Agent prompts](docs/agent-prompts.md): reusable prompts for common
+  agent-assisted OSS maintenance tasks.
 - [GitHub Actions](docs/github-actions.md): included workflows and how to extend
   them.
 - [Dependency policy](docs/dependency-policy.md): baseline Dependabot policy and

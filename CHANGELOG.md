@@ -15,11 +15,14 @@ format and uses semantic versioning when versioned releases are published.
 - Example generated repository shapes for minimal libraries, CLI tooling, and
   docs-only projects.
 - Optional generated repository README template.
+- Reusable agent prompt library for common OSS maintenance tasks.
 
 ### Changed
 
 - Aligned template terminology, placeholder documentation, and current V1
   surface area across docs, templates, and workflows.
+- Expanded template inventory checks and directory documentation to include the
+  generated repository README template.
 
 ## Release Links
 

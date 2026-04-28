@@ -24,8 +24,15 @@ For a practical setup flow, see
 ## Directory Map
 
 - `agents/`: agent operating instruction templates.
+- `branchbrief/`: branchbrief usage notes for generated repositories.
+- `cloudflare-pages/`: optional Cloudflare Pages deployment templates.
 - `contributors/`: contributor, conduct, and review handoff templates.
+- `dependabot/`: dependency update policy notes.
+- `docs-site/`: optional Astro/Starlight docs-site starter files.
 - `github/`: issue and pull request templates.
 - `license/`: license text templates.
+- `npm-package/`: optional JavaScript npm package starter files.
 - `readme/`: generated repository README template.
+- `release/`: changelog, roadmap, release process, and release checklist
+  templates.
 - `security/`: security policy and vulnerability reporting templates.

@@ -6,7 +6,7 @@ before it has application code.
 ## Included workflows
 
 - `CI` validates core repository files, checks that markdown files are not empty,
-  and runs optional Node commands only when `package.json` exists.
+  and scans generated-repository templates for stale template language.
 - `Docs` validates the docs directory and markdown file presence.
 - `branchbrief` creates a `branchbrief.md` artifact for pull requests.
 
@@ -42,8 +42,9 @@ When the project becomes a Node package or app, add the relevant scripts to
 }
 ```
 
-The baseline CI already calls these commands with `--if-present`, so projects
-can add them one at a time.
+The reusable workflow in `templates/github/workflows/ci.yml` calls these
+commands with `--if-present`, so generated repositories can add them one at a
+time after copying or adopting that workflow.
 
 If a project requires a specific Node version, add `actions/setup-node` before
 the optional Node checks:

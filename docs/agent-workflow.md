@@ -6,6 +6,9 @@ This document explains the practical workflow expected from AI agents and human 
 
 The goal is to ship useful changes while preserving trust. Every change should be easy to review, easy to verify, and easy to roll back.
 
+For reusable task prompts that follow this workflow, see
+[Agent Prompts](agent-prompts.md).
+
 ## Before Editing
 
 Before making changes, state:
