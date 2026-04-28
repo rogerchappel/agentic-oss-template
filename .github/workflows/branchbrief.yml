@@ -1,4 +1,4 @@
-name: Branchbrief
+name: branchbrief
 
 on:
   pull_request:
@@ -70,7 +70,7 @@ jobs:
           }
 
           {
-            echo "# Branchbrief"
+            echo "# branchbrief"
             echo
             echo "- Base: \`$base_ref\`"
             echo "- Head: \`$head_ref\`"

@@ -13,15 +13,15 @@ the repository in a state that is accurate enough for contributors and agents.
    - `{{GITHUB_OWNER}}`
    - `{{YEAR}}`
    - `{{LICENSE}}`
-2. Update the root README so it describes the new project, not the template.
+2. Update the root README so it describes the generated repository, not the template.
 3. Replace the root LICENSE with the correct license text and copyright owner.
-4. Review `AGENTS.md` and keep only instructions that match the new project.
+4. Review `AGENTS.md` and keep only instructions that match the generated repository.
 5. Review contributor, security, issue, and pull request templates for accuracy.
 6. Remove template files that are not useful for the new repository.
 7. Run `rg '\{\{[A-Z0-9_]+\}\}'` and replace or intentionally keep every
    remaining placeholder.
 8. Run `rg 'template|starter|example|placeholder|TODO'` and remove stale
-   template language that does not apply to the new project.
+   template language that does not apply to the generated repository.
 9. Make the first commit as a small identity-only change before adding project
    code.
 
@@ -42,7 +42,7 @@ Then update GitHub-facing templates:
 - `.github/ISSUE_TEMPLATE/*.md`
 
 Finally, review optional template assets under `templates/`. Keep them when the
-new repository will reuse them, and remove them when they would confuse future
+generated repository will reuse them, and remove them when they would confuse future
 contributors.
 
 ## Placeholder Rules

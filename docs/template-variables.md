@@ -12,7 +12,7 @@ remain reusable templates.
 | `{{PROJECT_DESCRIPTION}}` | One-sentence description of the repository purpose. | Product, library, or tool summary |
 | `{{AUTHOR_NAME}}` | Person or organisation that owns the copyright or maintains the project. | Maintainer or company name |
 | `{{GITHUB_OWNER}}` | GitHub user or organisation that owns the repository. | Repository namespace |
-| `{{YEAR}}` | Copyright year for the generated project. | Four-digit year |
+| `{{YEAR}}` | Copyright year for the generated repository. | Four-digit year |
 | `{{LICENSE}}` | SPDX-style license identifier or license name used by the project. | `MIT`, `Apache-2.0`, or another chosen license |
 
 ## Additional Variables Used By Templates
@@ -25,14 +25,19 @@ remain reusable templates.
 | `{{CURRENT_MAJOR_VERSION}}` | Current supported major version for security policy examples. |
 | `{{DEFAULT_BRANCH}}` | Default branch for the generated repository, usually `main`. |
 | `{{DISCLOSURE_POLICY}}` | Coordinated disclosure policy text for security reports. |
+| `{{DOCS_BUILD_COMMAND}}` | Command that builds the generated repository documentation site. |
+| `{{DOCS_BUILD_OUTPUT_DIR}}` | Build output directory for the generated repository documentation site. |
 | `{{DOCS_URL}}` | Public documentation URL. |
 | `{{GITHUB_REPO}}` | GitHub repository name without the owner. |
 | `{{HOMEPAGE_URL}}` | Public homepage or product URL. |
+| `{{INSTALL_COMMAND}}` | Install command shown in generated documentation. |
 | `{{IN_SCOPE_SECURITY_ITEM_1}}` | First in-scope security reporting area. |
 | `{{IN_SCOPE_SECURITY_ITEM_2}}` | Second in-scope security reporting area. |
 | `{{IN_SCOPE_SECURITY_ITEM_3}}` | Third in-scope security reporting area. |
+| `{{LAST_RELEASE_TAG}}` | Previous release tag used in changelog comparison links. |
 | `{{MAINTAINER_NAME}}` | Primary maintainer named in agent instructions. |
 | `{{NODE_VERSION}}` | Node.js version used by the project. |
+| `{{PACKAGE_DESCRIPTION}}` | One-sentence package description for package metadata and README files. |
 | `{{PACKAGE_MANAGER}}` | Package manager used by the project. |
 | `{{PACKAGE_NAME}}` | Package name used in package metadata or publish targets. |
 | `{{PR_URL_OR_NUMBER}}` | Pull request URL or number for review packs. |
@@ -41,6 +46,7 @@ remain reusable templates.
 | `{{REPOSITORY_URL}}` | Canonical repository URL. |
 | `{{REPO_NAME}}` | Repository name for review packs. |
 | `{{RESPONSE_EXPECTATIONS}}` | Expected response process for security reports. |
+| `{{RUNTIME_REQUIREMENT}}` | Runtime prerequisite shown in generated documentation. |
 | `{{TASK_SUMMARY}}` | Short task summary for review packs. |
 | `{{VULNERABILITY_REPORTING_INSTRUCTIONS}}` | Where and how to report vulnerabilities. |
 

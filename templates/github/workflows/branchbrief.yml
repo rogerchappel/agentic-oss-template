@@ -1,4 +1,4 @@
-name: Branchbrief
+name: branchbrief
 
 on:
   pull_request:
@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -70,7 +70,7 @@ jobs:
           }
 
           {
-            echo "# Branchbrief"
+            echo "# branchbrief"
             echo
             echo "- Base: \`$base_ref\`"
             echo "- Head: \`$head_ref\`"
@@ -148,7 +148,7 @@ jobs:
           } > branchbrief.md
 
       - name: Upload branchbrief artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: branchbrief
           path: branchbrief.md

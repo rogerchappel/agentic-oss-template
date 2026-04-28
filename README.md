@@ -23,7 +23,7 @@ It is a good fit for:
 
 It is not a complete product scaffold. It does not include application source
 code, a configured package manager at the root, deployment credentials, or a
-project-specific security contact. Generated projects should customize the
+project-specific security contact. Generated repositories should customize the
 template before publishing.
 
 ## What's included
@@ -31,7 +31,7 @@ template before publishing.
 ### Repository policy
 
 - `AGENTS.md`: operating instructions for AI agents and human maintainers.
-- `CONTRIBUTING.md`: contribution expectations for generated projects.
+- `CONTRIBUTING.md`: contribution expectations for generated repositories.
 - `CODE_OF_CONDUCT.md`: baseline community conduct policy.
 - `SECURITY.md`: generic vulnerability reporting policy to customize.
 - `LICENSE`: MIT license text for the template.
@@ -62,7 +62,7 @@ template before publishing.
 - [Repository customisation](docs/repo-customisation.md): first-pass setup after
   generating a new repository.
 - [Agent workflow](docs/agent-workflow.md): branch, verification, commit, and
-  review-pack expectations.
+  review pack expectations.
 - [GitHub Actions](docs/github-actions.md): included workflows and how to extend
   them.
 - [Dependency policy](docs/dependency-policy.md): baseline Dependabot policy and
@@ -70,9 +70,9 @@ template before publishing.
 - [Release process](docs/release-process.md): lightweight versioning, changelog,
   release notes, publishing, and rollback guidance.
 - [Security policy customisation](docs/security-policy.md): how to adapt
-  vulnerability reporting for the generated project.
+  vulnerability reporting for the generated repository.
 
-Additional docs cover Branchbrief, Cloudflare Pages, npm publishing, Copilot,
+Additional docs cover branchbrief, Cloudflare Pages, npm publishing, Copilot,
 LLM usage policy, release checklists, template variables, and the project PRD.
 
 ### Examples
@@ -87,10 +87,10 @@ generated repositories can look after customization:
 ### Reusable templates
 
 The `templates/` directory contains copyable or reference files for generated
-projects, including:
+repositories, including:
 
 - agent instruction templates
-- contributor and review-pack templates
+- contributor and review pack templates
 - GitHub issue, pull request, workflow, and Dependabot templates
 - release, changelog, roadmap, and release-checklist templates
 - security policy templates
@@ -106,9 +106,9 @@ projects, including:
 3. Create a new repository from the template.
 4. Clone the generated repository locally.
 5. Create a branch for the first customisation pass.
-6. Replace the template identity with the new project's name, description,
+6. Replace the template identity with the generated repository's name, description,
    owner, license choice, maintainer guidance, and security reporting path.
-7. Remove files and template assets that the new project will not use.
+7. Remove files and template assets that the generated repository will not use.
 8. Run the checks listed in the first-30-minute checklist below.
 9. Commit the identity and policy changes before adding application, package, or
    product code.
@@ -118,19 +118,19 @@ projects, including:
 Use this checklist before inviting contributors or agents into the generated
 repository:
 
-- Update `README.md` so it describes the new project, not this template.
+- Update `README.md` so it describes the generated repository, not this template.
 - Review `LICENSE` and set the correct license text and copyright owner.
-- Review `AGENTS.md` and keep only instructions that match the new project.
+- Review `AGENTS.md` and keep only instructions that match the generated repository.
 - Review `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, and `SECURITY.md` for accuracy.
 - Confirm the security reporting path exists and is monitored.
 - Review `.github/pull_request_template.md` and `.github/ISSUE_TEMPLATE/*.md`.
 - Remove unused files from `templates/`.
 - Search for unresolved template markers and resolve every marker that should
-  not ship in the generated project.
+  not ship in the generated repository.
 - Search for stale template language and remove anything that no longer applies
-  to the generated project.
+  to the generated repository.
 - Run `bash scripts/validate-template.sh` while maintaining this template.
-- Run the smallest relevant local verification for the generated project.
+- Run the smallest relevant local verification for the generated repository.
 - Make the first commit as a small identity-only change.
 
 For the full setup sequence, see
@@ -152,6 +152,6 @@ These expectations are documented in
 
 ## License
 
-This template is released under the MIT License. Projects generated from it
-should choose and document the license that fits their own project before
+This template is released under the MIT License. Repositories generated from it
+should choose and document the license that fits their own repository before
 publishing.

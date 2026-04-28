@@ -14,8 +14,8 @@ format and uses semantic versioning when versioned releases are published.
 ## Release Links
 
 - Unreleased:
-  `https://github.com/{{GITHUB_OWNER}}/{{REPOSITORY_NAME}}/compare/{{LAST_RELEASE_TAG}}...HEAD`
+  `https://github.com/{{GITHUB_OWNER}}/{{GITHUB_REPO}}/compare/{{LAST_RELEASE_TAG}}...HEAD`
 - Latest release:
-  `https://github.com/{{GITHUB_OWNER}}/{{REPOSITORY_NAME}}/releases/latest`
+  `https://github.com/{{GITHUB_OWNER}}/{{GITHUB_REPO}}/releases/latest`
 
 Replace placeholder links once the first release tag exists.

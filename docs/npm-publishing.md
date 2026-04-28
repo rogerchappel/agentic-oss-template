@@ -18,7 +18,7 @@ GitHub Action-only, or otherwise do not need Node package metadata.
 
 ## Use The Scaffold
 
-1. Copy `templates/npm-package/` into the root of the generated project.
+1. Copy `templates/npm-package/` into the root of the generated repository.
 2. Replace these placeholders:
    - `{{PACKAGE_NAME}}`
    - `{{PACKAGE_DESCRIPTION}}`
@@ -32,9 +32,9 @@ GitHub Action-only, or otherwise do not need Node package metadata.
 npm test
 ```
 
-The scaffold intentionally does not include TypeScript. If the generated project
+The scaffold intentionally does not include TypeScript. If the generated repository
 chooses TypeScript, add `typescript`, a `tsconfig.json`, and a `typecheck` script
-in that project as a separate reviewable change.
+in that generated repository as a separate reviewable change.
 
 ## Before Publishing
 

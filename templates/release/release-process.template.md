@@ -42,7 +42,7 @@ Choose checks that match the release:
   supported.
 - CLI: smoke tests for key commands and install paths.
 - Service: integration checks, deployment smoke test, and rollback notes.
-- Template: sample generated project review when practical.
+- Template: sample generated repository review when practical.
 
 Record exact commands or manual checks in the release notes.
 

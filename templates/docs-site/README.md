@@ -1,12 +1,12 @@
 # Optional Docs Site Template
 
-This directory contains an optional Astro/Starlight documentation site scaffold for generated projects.
+This directory contains an optional Astro/Starlight documentation site scaffold for generated repositories.
 
-It is not required by the base template. Copy it into a generated project only when that project wants hosted or locally built documentation.
+It is not required by the base template. Copy it into a generated repository only when that repository wants hosted or locally built documentation.
 
 ## Use
 
-Recommended generated-project layout:
+Recommended generated repository layout:
 
 ```text
 docs-site/
@@ -23,7 +23,7 @@ npm run dev
 npm run build
 ```
 
-Replace all `{{PLACEHOLDER}}` values before publishing.
+Replace all double-brace placeholder values before publishing.
 
 ## Deployment
 

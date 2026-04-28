@@ -130,13 +130,13 @@ jobs:
             exit 1
           fi
 
-      - name: Scan generated-project templates for stale repository language
+      - name: Scan generated repository templates for stale repository language
         shell: bash
         run: |
           set -euo pipefail
 
-          generated_project_file_list="$(mktemp)"
-          trap 'rm -f "$generated_project_file_list"' EXIT
+          generated_repository_file_list="$(mktemp)"
+          trap 'rm -f "$generated_repository_file_list"' EXIT
 
           find templates \
             -type f \
@@ -155,10 +155,10 @@ jobs:
             -not -path 'templates/README.md' \
             -not -path 'templates/*/README.md' \
             -print |
-            sort > "$generated_project_file_list"
+            sort > "$generated_repository_file_list"
 
-          if [ ! -s "$generated_project_file_list" ]; then
-            echo "No generated-project template files found."
+          if [ ! -s "$generated_repository_file_list" ]; then
+            echo "No generated repository template files found."
             exit 1
           fi
 
@@ -169,9 +169,9 @@ jobs:
             if grep -nE "$stale_pattern" "$file"; then
               stale_matches=1
             fi
-          done < "$generated_project_file_list"
+          done < "$generated_repository_file_list"
 
           if [ "$stale_matches" -ne 0 ]; then
-            echo "Generated-project-facing template files contain stale template-repository language."
+            echo "Generated repository template files contain stale template repository language."
             exit 1
           fi

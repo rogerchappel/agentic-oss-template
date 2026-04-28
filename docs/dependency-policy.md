@@ -7,12 +7,12 @@ This template starts with Dependabot updates for GitHub Actions only.
 - Dependabot checks workflow action versions weekly.
 - Dependency pull requests should be small and reviewed like any other change.
 - Avoid major dependency upgrades in the same commit as feature work.
-- Do not add package-manager Dependabot entries until the project has a real
+- Do not add package-manager Dependabot entries until the generated repository has a real
   package manifest.
 
 ## Adding Node/npm updates later
 
-After a project adds `package.json`, extend `.github/dependabot.yml` with npm:
+After a generated repository adds `package.json`, extend `.github/dependabot.yml` with npm:
 
 ```yaml
   - package-ecosystem: npm
