@@ -19,22 +19,81 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v6
 
-      - name: Validate required project files
+      - name: Validate required top-level files
+        shell: bash
         run: |
           set -euo pipefail
 
           required_files=(
-            README.md
-            LICENSE
             .editorconfig
             .gitignore
+            AGENTS.md
+            CHANGELOG.md
+            CODE_OF_CONDUCT.md
+            CONTRIBUTING.md
+            README.md
+            LICENSE
+            ROADMAP.md
+            SECURITY.md
           )
 
           for file in "${required_files[@]}"; do
             test -s "$file"
           done
 
+      - name: Validate required docs
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          required_docs=(
+            docs/PRD.md
+            docs/agent-workflow.md
+            docs/branchbrief.md
+            docs/cloudflare-pages.md
+            docs/copilot.md
+            docs/dependency-policy.md
+            docs/github-actions.md
+            docs/llm-policy.md
+            docs/npm-publishing.md
+            docs/release-checklist.md
+            docs/release-process.md
+            docs/repo-customisation.md
+            docs/security-policy.md
+            docs/template-variables.md
+          )
+
+          for doc in "${required_docs[@]}"; do
+            test -s "$doc"
+          done
+
+      - name: Validate required template directories
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          required_template_dirs=(
+            templates/agents
+            templates/branchbrief
+            templates/cloudflare-pages
+            templates/contributors
+            templates/dependabot
+            templates/docs-site
+            templates/github
+            templates/github/ISSUE_TEMPLATE
+            templates/github/workflows
+            templates/license
+            templates/npm-package
+            templates/release
+            templates/security
+          )
+
+          for dir in "${required_template_dirs[@]}"; do
+            test -d "$dir"
+          done
+
       - name: Validate markdown files are not empty
+        shell: bash
         run: |
           set -euo pipefail
 
@@ -50,23 +109,69 @@ jobs:
             exit 1
           fi
 
-      - name: Run optional Node checks
+      - name: Validate root docs do not contain unresolved placeholders
+        shell: bash
         run: |
           set -euo pipefail
 
-          if [ ! -f package.json ]; then
-            echo "No package.json found; skipping Node checks."
-            echo "TODO: add install, lint, test, typecheck, or build commands when this template becomes an app or package."
-            exit 0
+          project_facing_root_docs=(
+            AGENTS.md
+            CHANGELOG.md
+            CODE_OF_CONDUCT.md
+            CONTRIBUTING.md
+            README.md
+            ROADMAP.md
+            SECURITY.md
+          )
+
+          if grep -nE '\{\{[A-Z0-9_][A-Z0-9_]*\}\}' "${project_facing_root_docs[@]}"; then
+            echo "Unexpected double-brace placeholders found in project-facing root docs."
+            echo "Reusable placeholders are allowed under templates/ and documented in docs/template-variables.md."
+            exit 1
           fi
 
-          if [ -f package-lock.json ]; then
-            npm ci
-          else
-            npm install
+      - name: Scan generated-project templates for stale repository language
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          generated_project_file_list="$(mktemp)"
+          trap 'rm -f "$generated_project_file_list"' EXIT
+
+          find templates \
+            -type f \
+            \( \
+              -name '*.md' \
+              -o -name '*.mdx' \
+              -o -name '*.json' \
+              -o -name '*.js' \
+              -o -name '*.mjs' \
+              -o -name '*.ts' \
+              -o -name '*.toml' \
+              -o -name '*.yml' \
+              -o -name '*.yaml' \
+              -o -name '*.template' \
+            \) \
+            -not -path 'templates/README.md' \
+            -not -path 'templates/*/README.md' \
+            -print |
+            sort > "$generated_project_file_list"
+
+          if [ ! -s "$generated_project_file_list" ]; then
+            echo "No generated-project template files found."
+            exit 1
           fi
 
-          npm run lint --if-present
-          npm test --if-present
-          npm run typecheck --if-present
-          npm run build --if-present
+          stale_pattern='agentic-oss-template|this template repository|Use this template|generated from this template'
+          stale_matches=0
+
+          while IFS= read -r file; do
+            if grep -nE "$stale_pattern" "$file"; then
+              stale_matches=1
+            fi
+          done < "$generated_project_file_list"
+
+          if [ "$stale_matches" -ne 0 ]; then
+            echo "Generated-project-facing template files contain stale template-repository language."
+            exit 1
+          fi
