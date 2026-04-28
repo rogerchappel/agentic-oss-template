@@ -1,8 +1,8 @@
 # Optional Cloudflare Pages Template
 
-This directory contains optional Cloudflare Pages deployment examples for generated projects.
+This directory contains optional Cloudflare Pages deployment examples for generated projects with hosted documentation sites.
 
-Cloudflare Pages is not required by the base template. Copy these files only when a generated project has chosen Cloudflare for hosted documentation.
+Cloudflare Pages is not required by the base template. Copy these files only when a generated project has chosen Cloudflare for generated hosted documentation.
 
 ## Files
 
@@ -13,6 +13,13 @@ Cloudflare Pages is not required by the base template. Copy these files only whe
 
 For most projects, use Cloudflare dashboard-managed Pages builds instead of GitHub Actions deployment. Dashboard-managed builds usually avoid repository workflow changes and do not require this template repository to store secrets.
 
+Recommended dashboard placeholders for the provided `templates/docs-site/` package:
+
+- Root directory: `docs-site`
+- Build command: `{{DOCS_BUILD_COMMAND}}`, usually `npm run build`
+- Build output directory: `{{DOCS_BUILD_OUTPUT_DIR}}`, usually `dist`
+- Production branch: `{{DEFAULT_BRANCH}}`, usually `main`
+
 ## GitHub Actions Requirements
 
 If a generated project copies `deploy-docs-cloudflare-pages.yml`, configure these in that generated repository:
@@ -21,4 +28,8 @@ If a generated project copies `deploy-docs-cloudflare-pages.yml`, configure thes
 - `CLOUDFLARE_ACCOUNT_ID` as a GitHub Actions variable or secret
 - `CLOUDFLARE_PROJECT_NAME` as a GitHub Actions variable
 
-Do not commit Cloudflare API tokens or `.env` files.
+Also review and replace any project-specific placeholders before enabling deployment, including the docs working directory, build command, output directory, and production branch.
+
+## What Not To Commit
+
+Do not commit Cloudflare API tokens, account credentials, `.env` files, generated deployment output, or production-only configuration copied from the Cloudflare dashboard.
