@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  repository-hygiene:
+    name: Repository hygiene
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate baseline files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          test -f README.md
+          test -f LICENSE
+          test -d .github
+          test -d docs
+
+      - name: List automation files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          find .github/workflows -maxdepth 1 -type f -name '*.yml' -print | sort
+          find docs -maxdepth 2 -type f -name '*.md' -print | sort
+
+      - name: Node project placeholder
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ -f package.json ]; then
+            echo "package.json detected. Add install, lint, test, and build steps when the Node project is ready."
+          else
+            echo "No package.json detected. Baseline CI is limited to repository hygiene checks."
+          fi

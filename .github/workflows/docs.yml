@@ -1,0 +1,51 @@
+name: Docs
+
+on:
+  pull_request:
+    paths:
+      - README.md
+      - docs/**
+      - .github/workflows/docs.yml
+  push:
+    branches:
+      - main
+    paths:
+      - README.md
+      - docs/**
+      - .github/workflows/docs.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  docs-paths:
+    name: Validate documentation paths
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate docs layout
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          test -f README.md
+
+          if [ -d docs ]; then
+            find docs -type f -name '*.md' -print | sort
+          else
+            echo "No docs directory yet. Create docs/ when project documentation grows."
+          fi
+
+      - name: Node docs placeholder
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ -f package.json ]; then
+            echo "package.json detected. Add markdown linting or docs generation once tooling is selected."
+          else
+            echo "No package.json detected. Skipping Node-based documentation checks."
+          fi

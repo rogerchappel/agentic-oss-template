@@ -1,0 +1,50 @@
+name: Branchbrief
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  summarize:
+    name: Summarize branch changes
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Write branch brief
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE_SHA="${{ github.event.pull_request.base.sha }}"
+          else
+            BASE_SHA="$(git rev-parse HEAD~1 2>/dev/null || git rev-parse HEAD)"
+          fi
+
+          HEAD_SHA="${{ github.sha }}"
+
+          {
+            echo "## Branchbrief"
+            echo
+            echo "**Base:** \`${BASE_SHA}\`"
+            echo "**Head:** \`${HEAD_SHA}\`"
+            echo
+            echo "### Changed Files"
+            git diff --name-status "${BASE_SHA}...${HEAD_SHA}" || git diff --name-status "${BASE_SHA}" "${HEAD_SHA}"
+            echo
+            echo "### Recent Commits"
+            git log --oneline --decorate --max-count=10 "${BASE_SHA}..${HEAD_SHA}" || git log --oneline --decorate --max-count=10
+          } >> "$GITHUB_STEP_SUMMARY"
