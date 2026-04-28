@@ -48,6 +48,7 @@ remain reusable templates.
 | `{{RESPONSE_EXPECTATIONS}}` | Expected response process for security reports. |
 | `{{RUNTIME_REQUIREMENT}}` | Runtime prerequisite shown in generated documentation. |
 | `{{TASK_SUMMARY}}` | Short task summary for review packs. |
+| `{{USAGE_COMMAND}}` | Smallest useful command or example that shows how to use the generated repository. |
 | `{{VULNERABILITY_REPORTING_INSTRUCTIONS}}` | Where and how to report vulnerabilities. |
 
 ## Replacement Check

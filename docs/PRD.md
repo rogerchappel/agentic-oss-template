@@ -156,6 +156,7 @@ V1 is the current template foundation. It includes the following files and direc
 - `templates/npm-package/package.json`
 - `templates/npm-package/src/index.js`
 - `templates/npm-package/test/index.test.js`
+- `templates/readme/README.template.md`
 - `templates/release/CHANGELOG.template.md`
 - `templates/release/ROADMAP.template.md`
 - `templates/release/release-checklist.template.md`

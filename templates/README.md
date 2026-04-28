@@ -27,4 +27,5 @@ For a practical setup flow, see
 - `contributors/`: contributor, conduct, and review handoff templates.
 - `github/`: issue and pull request templates.
 - `license/`: license text templates.
+- `readme/`: generated repository README template.
 - `security/`: security policy and vulnerability reporting templates.
