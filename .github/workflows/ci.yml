@@ -49,6 +49,7 @@ jobs:
           required_docs=(
             docs/PRD.md
             docs/agent-workflow.md
+            docs/agent-prompts.md
             docs/branchbrief.md
             docs/cloudflare-pages.md
             docs/copilot.md
@@ -84,6 +85,7 @@ jobs:
             templates/github/workflows
             templates/license
             templates/npm-package
+            templates/readme
             templates/release
             templates/security
           )

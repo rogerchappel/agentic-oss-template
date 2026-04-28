@@ -109,6 +109,7 @@ V1 is the current template foundation. It includes the following files and direc
 ### Documentation
 
 - `docs/PRD.md`
+- `docs/agent-prompts.md`
 - `docs/agent-workflow.md`
 - `docs/branchbrief.md`
 - `docs/cloudflare-pages.md`
@@ -173,6 +174,7 @@ V1 must:
 - provide a clear README for humans and agents
 - use the MIT License
 - include agent operating instructions in `AGENTS.md`
+- include reusable agent prompts for common OSS maintenance tasks
 - support atomic commits, review packs, risk classification, and verification discipline
 - provide GitHub issue and PR templates
 - include safe baseline GitHub Actions workflows
@@ -305,6 +307,7 @@ V1 is acceptable when:
 - optional Copilot docs are clearly optional
 - optional npm package scaffold exists
 - optional docs-site scaffold exists
+- reusable agent prompt library exists
 - MIT license template exists
 - template variables doc exists
 - repository customisation guide exists

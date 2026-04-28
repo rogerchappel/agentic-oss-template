@@ -70,6 +70,7 @@ SECURITY.md
 
 required_docs="
 docs/agent-workflow.md
+docs/agent-prompts.md
 docs/branchbrief.md
 docs/cloudflare-pages.md
 docs/copilot.md
