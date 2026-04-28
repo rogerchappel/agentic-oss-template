@@ -21,6 +21,8 @@ format and uses semantic versioning when versioned releases are published.
 
 - Aligned template terminology, placeholder documentation, and current V1
   surface area across docs, templates, and workflows.
+- Expanded the optional docs-site template with clearer setup guidance and a
+  contributing starter page.
 - Expanded template inventory checks and directory documentation to include the
   generated repository README template.
 - Tightened template file validation and aligned generated workflow action

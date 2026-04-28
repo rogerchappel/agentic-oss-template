@@ -16,7 +16,9 @@ export default defineConfig({
         {
           label: 'Start Here',
           items: [
-            { label: 'Getting Started', slug: 'getting-started' }
+            { label: 'Overview', slug: 'index' },
+            { label: 'Getting Started', slug: 'getting-started' },
+            { label: 'Contributing', slug: 'contributing' }
           ]
         }
       ]
