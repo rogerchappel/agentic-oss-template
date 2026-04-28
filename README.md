@@ -73,6 +73,15 @@ template before publishing.
 Additional docs cover Branchbrief, Cloudflare Pages, npm publishing, Copilot,
 LLM usage policy, release checklists, template variables, and the project PRD.
 
+### Examples
+
+The `examples/` directory contains small documentation-first examples of how
+generated repositories can look after customization:
+
+- [Minimal library repository](examples/minimal-library/README.md)
+- [CLI and tooling repository](examples/cli-tooling/README.md)
+- [Docs-only repository](examples/docs-only/README.md)
+
 ### Reusable templates
 
 The `templates/` directory contains copyable or reference files for generated
