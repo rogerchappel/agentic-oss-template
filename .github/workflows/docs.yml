@@ -45,12 +45,17 @@ jobs:
             test -s "$file"
           done < markdown-files.txt
 
-      - name: Print docs customization TODO
+      - name: Validate docs inventory
         run: |
           set -euo pipefail
 
-          if [ -f package.json ]; then
-            echo "Add docs build verification here when the repository has a docs toolchain."
-          else
-            echo "No package.json found; docs workflow is limited to markdown hygiene."
-          fi
+          required_docs=(
+            docs/PRD.md
+            docs/agent-workflow.md
+            docs/release-process.md
+            docs/security-policy.md
+          )
+
+          for doc in "${required_docs[@]}"; do
+            test -s "$doc"
+          done
