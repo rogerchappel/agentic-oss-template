@@ -152,6 +152,13 @@ The repository is designed around small, reviewable, reversible changes:
 These expectations are documented in
 [Agent workflow](docs/agent-workflow.md) and mirrored in `AGENTS.md`.
 
+## Limitations and Safety
+
+- This tool; it is intended for local developer workflows and reviewable automation, not as an unattended production control plane.
+- Review generated output before using it in commits, releases, issue updates, or connector actions.
+- The CLI (`the CLI`) works from local files and repository state; avoid passing secrets, private customer data, or unredacted logs in fixtures or examples.
+- Treat non-zero exits and warnings as review signals. Re-run the documented verification commands after changing parser, renderer, or package metadata behavior.
+
 ## License
 
 This template is released under the MIT License. Repositories generated from it
