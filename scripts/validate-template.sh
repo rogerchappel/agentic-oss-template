@@ -197,6 +197,19 @@ else
   pass "no unresolved placeholders outside allowed template paths"
 fi
 
+printf '\nScanning project documentation for stale product wording...\n'
+stale_product_hits="$(grep -nF \
+  -e 'This tool;' \
+  -e "The CLI (\`the CLI\`) works from local files" \
+  README.md || true)"
+
+if [ -n "$stale_product_hits" ]; then
+  fail "found stale product-specific wording in README.md"
+  printf '%s\n' "$stale_product_hits" >&2
+else
+  pass "no stale product-specific wording in README.md"
+fi
+
 if [ "$failed" -ne 0 ]; then
   printf '\nTemplate validation failed.\n' >&2
   exit 1
