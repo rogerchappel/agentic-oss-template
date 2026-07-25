@@ -154,10 +154,14 @@ These expectations are documented in
 
 ## Limitations and Safety
 
-- This tool; it is intended for local developer workflows and reviewable automation, not as an unattended production control plane.
-- Review generated output before using it in commits, releases, issue updates, or connector actions.
-- The CLI (`the CLI`) works from local files and repository state; avoid passing secrets, private customer data, or unredacted logs in fixtures or examples.
-- Treat non-zero exits and warnings as review signals. Re-run the documented verification commands after changing parser, renderer, or package metadata behavior.
+- This repository provides reusable project scaffolding and guidance, not an
+  application runtime or unattended production control plane.
+- Review and customise generated files before using them in commits, releases,
+  issue updates, or automation.
+- Keep secrets, private customer data, and unredacted logs out of committed
+  fixtures and examples.
+- Treat validation failures and warnings as review signals, and rerun the
+  documented checks after changing templates or repository policy.
 
 ## License
 
