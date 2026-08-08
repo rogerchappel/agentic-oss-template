@@ -119,8 +119,10 @@ templates/dependabot/README.md
 templates/docs-site/.gitignore
 templates/docs-site/README.md
 templates/docs-site/astro.config.mjs
+templates/docs-site/package-lock.json
 templates/docs-site/package.json
 templates/docs-site/src/content.config.ts
+templates/docs-site/src/content/docs/404.mdx
 templates/docs-site/src/content/docs/contributing.mdx
 templates/docs-site/src/content/docs/getting-started.mdx
 templates/docs-site/src/content/docs/index.mdx
