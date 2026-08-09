@@ -11,6 +11,30 @@ permissions:
   contents: read
 
 jobs:
+  docs-site:
+    name: Docs site starter
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: templates/docs-site
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: templates/docs-site/package-lock.json
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Build docs site starter
+        run: npm run build
+
   repository-hygiene:
     name: Repository hygiene
     runs-on: ubuntu-latest
@@ -113,8 +137,10 @@ jobs:
             templates/docs-site/.gitignore
             templates/docs-site/README.md
             templates/docs-site/astro.config.mjs
+            templates/docs-site/package-lock.json
             templates/docs-site/package.json
             templates/docs-site/src/content.config.ts
+            templates/docs-site/src/content/docs/404.mdx
             templates/docs-site/src/content/docs/getting-started.mdx
             templates/docs-site/src/content/docs/index.mdx
             templates/docs-site/tsconfig.json

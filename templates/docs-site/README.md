@@ -19,6 +19,7 @@ Recommended generated repository layout:
 docs-site/
   astro.config.mjs
   package.json
+  package-lock.json
   src/
 ```
 
@@ -35,15 +36,22 @@ At minimum, update:
 - `{{INSTALL_COMMAND}}`
 - `{{PRIMARY_VERIFICATION_COMMAND}}`
 
-From the copied `docs-site/` directory, run:
+In `astro.config.mjs`, replace the example `site` URL with the canonical origin
+where the docs will be deployed. Customize `src/content/docs/404.mdx` so its
+links and wording fit the generated repository.
+
+The committed lockfile is the install resolution for this starter. From the
+copied `docs-site/` directory, use the reproducible install and build workflow:
 
 ```sh
-npm install
+npm ci
 npm run dev
 npm run build
 ```
 
-Keep docs-site dependency updates in their own reviewable changes.
+Use `npm install` only when intentionally updating dependencies, commit the
+resulting `package.json` and `package-lock.json` changes together, and keep
+docs-site dependency updates in their own reviewable changes.
 
 ## Deployment
 
