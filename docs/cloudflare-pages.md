@@ -23,6 +23,7 @@ For a docs site copied from `templates/docs-site/`, use:
 docs-site/
   astro.config.mjs
   package.json
+  package-lock.json
   src/
 ```
 
@@ -84,6 +85,13 @@ Use it only after the generated repository has:
 - replaced placeholders such as the Cloudflare project name
 - reviewed the workflow for the repository's branch, package-manager, and output-directory conventions
 
+The provided npm workflow assumes the docs package is copied to `docs-site/`
+with its committed `package-lock.json`. It restores the npm cache from that
+lockfile, runs `npm ci` and `npm run build` in `docs-site/`, then deploys
+`docs-site/dist`. If the generated repository changes any of those paths or
+uses another package manager, update the cache, working-directory, build, and
+deploy settings together.
+
 Dashboard-managed Pages builds are simpler and should be the default recommendation for most small documentation sites.
 
 ## Verification
@@ -91,6 +99,7 @@ Dashboard-managed Pages builds are simpler and should be the default recommendat
 Before enabling Cloudflare Pages in a generated repository, confirm:
 
 - the docs site builds locally
+- `cd docs-site && npm ci && npm run build` succeeds for the provided npm scaffold
 - the Cloudflare Pages project points at the docs-site root
 - no Cloudflare credentials are committed
 - Cloudflare is described as optional in project docs

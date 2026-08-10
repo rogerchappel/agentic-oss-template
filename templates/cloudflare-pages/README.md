@@ -30,6 +30,11 @@ If a generated repository copies `deploy-docs-cloudflare-pages.yml`, configure t
 
 Also review and replace any project-specific placeholders before enabling deployment, including the docs working directory, build command, output directory, and production branch.
 
+The provided workflow expects the copied docs package at `docs-site/`. Keep its
+committed `package-lock.json`: the workflow configures the npm cache against
+`docs-site/package-lock.json`, runs `npm ci` from `docs-site/`, builds there,
+and deploys `docs-site/dist`.
+
 ## What Not To Commit
 
 Do not commit Cloudflare API tokens, account credentials, `.env` files, generated deployment output, or production-only configuration copied from the Cloudflare dashboard.
