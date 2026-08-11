@@ -31,6 +31,18 @@ check_dir() {
   fi
 }
 
+check_fixed_string() {
+  local file="$1"
+  local expected="$2"
+  local description="$3"
+
+  if grep -Fq -- "$expected" "$file"; then
+    pass "$description"
+  else
+    fail "$description"
+  fi
+}
+
 is_allowed_placeholder_path() {
   case "$1" in
     templates/* | \
@@ -210,6 +222,21 @@ if [ -n "$stale_product_hits" ]; then
   printf '%s\n' "$stale_product_hits" >&2
 else
   pass "no stale product-specific wording in README.md"
+fi
+
+printf '\nChecking Cloudflare Pages workflow reproducibility...\n'
+cloudflare_workflow="templates/cloudflare-pages/deploy-docs-cloudflare-pages.yml"
+check_fixed_string "$cloudflare_workflow" \
+  "cache-dependency-path: docs-site/package-lock.json" \
+  "Cloudflare workflow caches against the docs-site lockfile"
+check_fixed_string "$cloudflare_workflow" \
+  "run: npm ci" \
+  "Cloudflare workflow installs locked dependencies with npm ci"
+
+if grep -Eq '^[[:space:]]*run:[[:space:]]+npm install([[:space:]]|$)' "$cloudflare_workflow"; then
+  fail "Cloudflare workflow must not install dependencies with npm install"
+else
+  pass "Cloudflare workflow does not use npm install"
 fi
 
 if [ "$failed" -ne 0 ]; then
