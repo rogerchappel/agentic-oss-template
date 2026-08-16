@@ -27,3 +27,14 @@ After a generated repository adds `package.json`, extend `.github/dependabot.yml
 Run the project's smallest relevant verification before merging dependency
 updates. For Node projects, that usually means lint, tests, typecheck, and build
 when those scripts exist.
+
+The optional docs starter is maintained in `templates/docs-site/`, so this
+repository also checks that directory weekly. When updating it, change both
+`package.json` and `package-lock.json`, then run:
+
+```sh
+bash scripts/validate-template.sh
+cd templates/docs-site
+npm ci
+npm run build
+```
