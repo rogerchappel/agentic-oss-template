@@ -51,7 +51,7 @@ the optional Node checks:
 
 ```yaml
 - name: Set up Node
-  uses: actions/setup-node@v4
+  uses: actions/setup-node@v6
   with:
     node-version: 22
     cache: npm

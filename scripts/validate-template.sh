@@ -239,6 +239,38 @@ else
   pass "Cloudflare workflow does not use npm install"
 fi
 
+printf '\nChecking setup-node action versions...\n'
+canonical_workflow=".github/workflows/ci.yml"
+canonical_setup_node_major="$(sed -nE 's/^[[:space:]]*uses:[[:space:]]+actions\/setup-node@v([0-9]+).*$/\1/p' "$canonical_workflow" | sort -nu)"
+
+if ! [[ "$canonical_setup_node_major" =~ ^[0-9]+$ ]]; then
+  fail "canonical CI workflow must use exactly one setup-node major"
+else
+  setup_node_examples="
+docs/github-actions.md
+templates/cloudflare-pages/deploy-docs-cloudflare-pages.yml
+"
+
+  for file in $setup_node_examples; do
+    example_majors="$(sed -nE 's/.*actions\/setup-node@v([0-9]+).*/\1/p' "$file" | sort -nu)"
+
+    if [ -z "$example_majors" ]; then
+      fail "$file must include an actions/setup-node major"
+      continue
+    fi
+
+    while IFS= read -r major; do
+      if [ "$major" -lt "$canonical_setup_node_major" ]; then
+        fail "$file uses setup-node v$major, older than canonical v$canonical_setup_node_major"
+      else
+        pass "$file setup-node v$major is not older than canonical v$canonical_setup_node_major"
+      fi
+    done <<EOF
+$example_majors
+EOF
+  done
+fi
+
 if [ "$failed" -ne 0 ]; then
   printf '\nTemplate validation failed.\n' >&2
   exit 1
