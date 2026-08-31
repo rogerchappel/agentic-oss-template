@@ -239,6 +239,16 @@ else
   pass "Cloudflare workflow does not use npm install"
 fi
 
+printf '\nTesting npm package starter...\n'
+if (
+  cd templates/npm-package
+  node --test
+); then
+  pass "npm package starter tests pass"
+else
+  fail "npm package starter tests fail"
+fi
+
 printf '\nChecking setup-node action versions...\n'
 canonical_workflow=".github/workflows/ci.yml"
 canonical_setup_node_major="$(sed -nE 's/^[[:space:]]*uses:[[:space:]]+actions\/setup-node@v([0-9]+).*$/\1/p' "$canonical_workflow" | sort -nu)"

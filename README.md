@@ -131,7 +131,9 @@ repository:
   not ship in the generated repository.
 - Search for stale template language and remove anything that no longer applies
   to the generated repository.
-- Run `bash scripts/validate-template.sh` while maintaining this template.
+- Run `bash scripts/validate-template.sh` while maintaining this template. The
+  validator also executes the dependency-free npm package starter tests from
+  `templates/npm-package/`.
 - Run the smallest relevant local verification for the generated repository.
 - Make the first commit as a small identity-only change.
 
