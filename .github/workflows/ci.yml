@@ -43,6 +43,14 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v6
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: Run canonical template validation
+        run: bash scripts/validate-template.sh
+
       - name: Validate required top-level files
         shell: bash
         run: |
