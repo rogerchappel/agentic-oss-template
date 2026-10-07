@@ -40,8 +40,15 @@ In `astro.config.mjs`, replace the example `site` URL with the canonical origin
 where the docs will be deployed. Customize `src/content/docs/404.mdx` so its
 links and wording fit the generated repository.
 
-The committed lockfile is the install resolution for this starter. From the
-copied `docs-site/` directory, use the reproducible install and build workflow:
+The committed lockfile is the install resolution for this starter. Before installing dependencies, run the offline structural check from the copied `docs-site/` directory:
+
+```sh
+npm run validate
+```
+
+It uses only Node.js built-ins and checks the package scripts, Astro/Starlight
+configuration, content loader/schema, and starter page frontmatter without
+`node_modules` or network access. Then use the reproducible install and build workflow:
 
 ```sh
 npm ci
