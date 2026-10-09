@@ -10,7 +10,7 @@
     "validate": "node scripts/validate-template.mjs"
   },
   "dependencies": {
-    "@astrojs/starlight": "0.42.0",
+    "@astrojs/starlight": "0.42.5",
     "astro": "7.3.1"
   }
 }
