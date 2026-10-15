@@ -29,6 +29,9 @@ jobs:
           cache: npm
           cache-dependency-path: templates/docs-site/package-lock.json
 
+      - name: Validate docs site template offline
+        run: npm run validate
+
       - name: Install locked dependencies
         run: npm ci
 
